@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+
+# Neovim
+.neoconf.json
+lazy-lock.json
+
+# Sensitive files
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+config/secrets.yml
+config/database.yml
+secrets/
+private/
+credentials/
+certificates/
+tokens/
+
+# SSH keys
+id_rsa
+id_ed25519
+id_ecdsa
+*.ppk
+
+# API keys and tokens
+.apikey
+.token
+auth.json
+oauth.json
+
+# Password and credential files
+passwords.txt
+credentials.txt
+auth_tokens.txt
+*.passwords
+
+# Backup files that might contain sensitive data
+*.bak
+*.backup
+*.old
+
+# Log files that might contain sensitive information
+*.log
+logs/
+
