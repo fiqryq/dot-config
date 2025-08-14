@@ -13,7 +13,25 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  opts = {},
+  opts = {
+    adapters = {
+      deepseek = function()
+        return require("codecompanion.adapters").extend("deepseek", {
+          env = {
+            api_key = vim.env.DEEPSEEK_API_KEY,
+          },
+          schema = {
+            model = { default = "deepseek-chat" },
+          },
+        })
+      end,
+    },
+    strategies = {
+      chat = { adapter = "deepseek", model = "deepseek-chat" },
+      inline = { adapter = "deepseek", model = "deepseek-chat" },
+      agent = { adapter = "deepseek", model = "deepseek-chat" },
+    },
+  },
   specs = {
     {
       "rebelot/heirline.nvim",

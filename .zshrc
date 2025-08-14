@@ -8,7 +8,6 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-# source pyenv/bin/activate
 
 # Alias
 alias ls="eza --icons --group-directories-first"
