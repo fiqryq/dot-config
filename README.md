@@ -2,6 +2,9 @@
 
 This repository contains my personal terminal setup and dotfiles configuration.
 
+<img width="1972" height="1236" alt="CleanShot 2025-08-14 at 12 16 17" src="https://github.com/user-attachments/assets/27d3462b-2797-4ae8-8232-d2240867b18c" />
+
+
 ## Terminal Setup
 
 I use **Ghostty** as my terminal emulator with its default settings, plus a custom color scheme.
