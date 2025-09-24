@@ -15,7 +15,7 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-macos-titlebar-style = tabs
+macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 macos-icon = glass
 
@@ -26,7 +26,6 @@ unfocused-split-opacity = 1
 keybind = ctrl+|=new_split:right
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 
-#custom-shader = shaders/cursor_blaze.glsl
 custom-shader = shaders/cursor_smear.glsl
 
 auto-update-channel = tip

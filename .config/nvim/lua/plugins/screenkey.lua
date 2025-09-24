@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 return {
   "NStefan002/screenkey.nvim",
   lazy = false,

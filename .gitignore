@@ -50,3 +50,7 @@ auth_tokens.txt
 *.log
 logs/
 
+.config/tmux/plugins/
+raycast
+fzf
+history.txt

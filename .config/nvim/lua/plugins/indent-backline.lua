@@ -3,7 +3,7 @@ return {
   event = "User AstroFile",
   opts = {
     indent = {
-      char = "",
+      char = "#",
     },
     scope = {
       enabled = false,
