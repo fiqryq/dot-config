@@ -1,0 +1,27 @@
+local wezterm = require("wezterm")
+
+-- This will hold the configuration.
+local config = wezterm.config_builder()
+
+config.colors = {
+	foreground = "#c5c9c7",
+	background = "#14171d",
+	cursor_bg = "#c5c9c7",
+	cursor_border = "#c5c9c7",
+	cursor_fg = "#14171d",
+	selection_bg = "#393B44",
+	selection_fg = "#c5c9c7",
+	ansi = { "#14171d", "#c4746e", "#8a9a7b", "#c4b28a", "#8ba4b0", "#a292a3", "#8ea4a2", "#a4a7a4" },
+	brights = { "#5C6066", "#e46876", "#87a987", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#c5c9c7" },
+}
+
+config.font_size = 19
+
+config.enable_tab_bar = false
+
+config.window_decorations = "RESIZE"
+config.window_background_opacity = 1
+config.macos_window_background_blur = 10
+config.max_fps = 60
+
+return config

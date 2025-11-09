@@ -51,6 +51,7 @@ auth_tokens.txt
 logs/
 
 .config/tmux/plugins/
+tmux/plugins/
 raycast
 fzf
 history.txt
