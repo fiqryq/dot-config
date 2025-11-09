@@ -2,7 +2,7 @@
 
 This repository contains my personal terminal setup and dotfiles configuration for macOS.
 
-<img width="1972" height="1236" alt="CleanShot 2025-08-14 at 12 16 17" src="https://github.com/user-attachments/assets/27d3462b-2797-4ae8-8232-d2240867b18c" />
+<img width="2004" height="1212" alt="CleanShot 2025-11-09 at 17 28 04" src="https://github.com/user-attachments/assets/3f86411c-3870-48c7-8078-1cc898b50466" />
 
 ## Features
 
