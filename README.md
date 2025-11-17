@@ -16,22 +16,26 @@ This repository contains my personal terminal setup and dotfiles configuration f
 ## Tools & Applications
 
 ### Terminal & Shell
+
 - **[Ghostty](https://ghostty.org/)** / **[Wezterm](https://wezfurlong.org/wezterm/)** – Terminal emulators
 - **[Tmux](https://github.com/tmux/tmux)** – Terminal multiplexer with custom plugins
 - **[Zsh](https://www.zsh.org/)** – Shell with Oh My Zsh framework
 - **[Starship](https://starship.rs/)** – Cross-shell prompt
 
 ### Window Management
+
 - **[yabai](https://github.com/koekeishiya/yabai)** – Tiling window manager for macOS
 - **[skhd](https://github.com/koekeishiya/skhd)** – Simple hotkey daemon
 - **[Aerospace](https://github.com/nikitabobko/AeroSpace)** – Alternative tiling window manager
 
 ### Editor & Development
+
 - **[Neovim](https://neovim.io/)** – Hyperextensible Vim-based text editor
 - **[AstroNvim](https://github.com/AstroNvim/AstroNvim)** – Neovim configuration framework
 - **[Lazydocker](https://github.com/jesseduffield/lazydocker)** – Terminal UI for Docker
 
 ### CLI Tools
+
 - **[bat](https://github.com/sharkdp/bat)** – Cat clone with syntax highlighting
 - **[eza](https://github.com/eza-community/eza)** – Modern replacement for ls
 - **[fzf](https://github.com/junegunn/fzf)** – Fuzzy finder
@@ -59,22 +63,16 @@ git clone https://github.com/fiqryq/dot-config.git ~/dot-config
 cd ~/dot-config
 ```
 
-### 2. Run the Setup Script
+### 2. Stow Dotfiles
 
-The repository includes a setup script that handles symlinking:
+Use GNU Stow to create symlinks:
 
 ```bash
-# Dry run (preview changes)
-./setup.sh --dry-run
+# Stow all dotfiles
+./stow
 
-# Install dotfiles
-./setup.sh
-
-# Restow (refresh symlinks)
-./setup.sh --restow
-
-# Unstow (remove symlinks)
-./setup.sh --unstow
+# Or manually stow specific folders
+stow nvim tmux wezterm opencode
 ```
 
 ### 3. Install Tmux Plugins
@@ -103,6 +101,7 @@ dot-config/
 ├── aerospace/          # AeroSpace window manager config
 ├── ghostty/           # Ghostty terminal config
 ├── nvim/              # Neovim configuration
+├── opencode/          # OpenCode editor config
 ├── skhd/              # Hotkey daemon config
 ├── tmux/              # Tmux configuration & scripts
 ├── wezterm/           # Wezterm terminal config
@@ -111,7 +110,7 @@ dot-config/
 ├── zsh/               # Zsh shell configuration
 ├── .gitignore         # Git ignore rules
 ├── .stowrc            # Stow configuration
-└── setup.sh           # Installation script
+└── stow               # Stow wrapper script
 ```
 
 ## Post-Installation
@@ -163,7 +162,7 @@ To update the dotfiles:
 ```bash
 cd ~/dot-config
 git pull
-./setup.sh --restow
+./stow
 ```
 
 ## Troubleshooting
@@ -173,8 +172,14 @@ git pull
 If you encounter conflicts during installation:
 
 ```bash
-# The setup script automatically backs up conflicting files
-# Check for .backup.<timestamp> files in your home directory
+# Remove existing conflicting files/folders first
+rm ~/.config/nvim  # example
+
+# Or unstow to remove symlinks
+stow -D nvim
+
+# Then restow
+./stow
 ```
 
 ### Tmux Plugins Not Working
