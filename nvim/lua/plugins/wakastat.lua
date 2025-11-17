@@ -5,7 +5,7 @@ return {
     cmd = { "WakastatRefresh", "WakastatStatus" },
     opts = {
       args = { "--today" }, -- or "--week", "--month"
-      format = "[debug version]: %s", -- %s replaced with time
+      format = "session : %s", -- %s replaced with time
       update_interval = 300, -- seconds between updates
       enable_timer = true,
     },

@@ -4,6 +4,10 @@ return {
   lazy = false,
   event = "VimEnter",
   opts = {
+    dashboard = { enabled = true },
+    explorer = { enabled = true },
+    statuscolumn = { enabled = true },
+    scroll = { enabled = true },
     indent = {
       enabled = false,
       chunk = {

@@ -1,6 +1,5 @@
 local wezterm = require("wezterm")
 
--- This will hold the configuration.
 local config = wezterm.config_builder()
 
 config.colors = {
@@ -22,6 +21,6 @@ config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 1
 config.macos_window_background_blur = 10
-config.max_fps = 60
+config.max_fps = 120
 
 return config

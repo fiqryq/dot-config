@@ -1,6 +1,9 @@
 --target=~/.config
 --ignore=.stowrc
+--ignore=.git
+--ignore=.stow-local-ignore
+--ignore=.gitignore
 --ignore=DS_Store
 --ignore=^zsh$
 --ignore=README.md
---ignore=setup.sh
+--ignore=^stow$

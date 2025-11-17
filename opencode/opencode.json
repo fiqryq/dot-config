@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "@rules/general-guidelines.md",
+    "@rules/react-patterns.md",
+    "@rules/typescript-guidelines.md"
+  ],
+  "autoupdate": true,
+  "provider": {},
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      },
+      "enabled": true
+    },
+    "Better Auth": {
+      "type": "remote",
+      "url": "https://mcp.chonkie.ai/better-auth/better-auth-builder/mcp",
+      "enabled": true
+    }
+  }
+}
