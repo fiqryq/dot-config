@@ -69,7 +69,7 @@ Use GNU Stow to create symlinks:
 
 ```bash
 # Stow all dotfiles
-./stow
+stow .
 
 # Or manually stow specific folders
 stow nvim tmux wezterm opencode
@@ -162,7 +162,7 @@ To update the dotfiles:
 ```bash
 cd ~/dot-config
 git pull
-./stow
+stow .
 ```
 
 ## Troubleshooting
@@ -179,7 +179,7 @@ rm ~/.config/nvim  # example
 stow -D nvim
 
 # Then restow
-./stow
+stow .
 ```
 
 ### Tmux Plugins Not Working
