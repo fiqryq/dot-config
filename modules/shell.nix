@@ -88,6 +88,11 @@
 
       # Start tmux on interactive shell start
       if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
+        # Clean up stale socket if the server is no longer running
+        local _tmux_socket="/tmp/tmux-$(id -u)/default"
+        if [[ -S "$_tmux_socket" ]] && ! tmux list-sessions &>/dev/null 2>&1; then
+          rm -f "$_tmux_socket"
+        fi
         tmux attach -t default || tmux new -s default
       fi
 
