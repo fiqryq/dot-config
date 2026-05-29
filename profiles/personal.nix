@@ -7,7 +7,7 @@
     ../modules/configs.nix
     ../modules/shell.nix
     ../modules/git.nix
-    ../modules/node.nix
+    ../modules/fnm.nix
     ../modules/extras.nix
   ];
 

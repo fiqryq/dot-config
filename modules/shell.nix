@@ -74,11 +74,9 @@
         fpath=($HOME/.docker/completions $fpath)
       fi
 
-      # NVM — only load when node.nix module is NOT active
-      if [[ -z "''${NIX_HM_NODE:-}" ]]; then
-        export NVM_DIR="$HOME/.nvm"
-        [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-        [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
+      # fnm — fast Node version manager with auto-switching
+      if command -v fnm &>/dev/null; then
+        eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
       fi
 
       # EDITOR / .env.local
@@ -113,7 +111,13 @@
 
         echo "Switching to profile: $profile"
         echo "$profile" > "$HOME/.nix-current-profile"
-        home-manager switch --flake "''${flake_dir}#''${profile}" "''${@:2}"
+        local hm_cmd
+        if command -v home-manager &>/dev/null; then
+          hm_cmd="home-manager"
+        else
+          hm_cmd="nix run github:nix-community/home-manager/release-24.11 --"
+        fi
+        ''${=hm_cmd} switch --flake "''${flake_dir}#''${profile}" "''${@:2}"
         exec zsh
       }
 
