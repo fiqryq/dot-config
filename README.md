@@ -16,8 +16,8 @@ dot-config/
 │   ├── tmux/
 │   └── wezterm/
 ├── profiles/
-│   ├── personal.nix    # core + shell + git + node + extras
-│   ├── work.nix        # core + shell + git + node + devops
+│   ├── personal.nix    # core + shell + git + fnm + extras
+│   ├── work.nix        # core + shell + git + fnm + devops
 │   └── minimal.nix     # core + shell + git only
 └── modules/
     ├── core.nix        # Always-on: tmux, lazygit, bat, eza, fzf, ripgrep, zoxide, starship, direnv
@@ -25,7 +25,7 @@ dot-config/
     ├── configs.nix     # Symlinks ghostty, tmux, wezterm into ~/.config/
     ├── shell.nix       # zsh + oh-my-zsh + aliases + hms switcher
     ├── git.nix         # git config + 1Password SSH signing
-    ├── node.nix        # nodejs_22 + pnpm
+    ├── fnm.nix         # fnm (fast Node version manager, auto-switches via .nvmrc)
     ├── devops.nix      # kubectl, helm, gcloud, mkcert, sops, k9s
     └── extras.nix      # ollama, lazydocker, lazysql, cloudflared
 ```
@@ -56,7 +56,7 @@ rm ~/.config/ghostty ~/.config/tmux ~/.config/wezterm 2>/dev/null  # if they're 
 git -C ~/dot-config add .
 
 # 6. Activate your profile
-nix run home-manager/release-24.11 -- switch --flake ~/dot-config#personal
+cd ~/dot-config && nix run github:nix-community/home-manager/release-24.11 -- switch --flake .#personal
 
 # 7. Reload shell — hms function is now available
 exec zsh
@@ -249,6 +249,42 @@ hms myprofile
 
 ---
 
+## Node version management
+
+Node.js is managed by [fnm](https://github.com/Schniz/fnm) (Fast Node Manager). It auto-switches versions based on `.nvmrc` or `.node-version` files when you `cd` into a project.
+
+### Install a Node version
+
+```bash
+fnm install --lts          # latest LTS
+fnm install 22             # specific major
+fnm install 22.14.0        # exact version
+```
+
+### Set a global default
+
+```bash
+fnm default lts-latest
+```
+
+### Pin a project to a specific version
+
+```bash
+echo "22" > .nvmrc         # or .node-version
+```
+
+fnm will auto-switch when you enter the directory.
+
+### Install pnpm after switching to a new Node version
+
+pnpm is installed globally per Node version via npm:
+
+```bash
+npm install -g pnpm@10
+```
+
+---
+
 ## Upgrading packages
 
 ```bash
@@ -333,5 +369,5 @@ These are NOT managed by Nix — install them manually:
 | ghostty, wezterm | Configs managed here; binaries via Homebrew cask |
 | caddy, redis, nginx | `brew services` gives launchd integration |
 | rustup | Manages its own toolchain |
-| nvm | Multi-version Node switching (used in personal profile) |
+| nvm | No longer used — replaced by fnm (managed by Nix) |
 | orbstack | macOS kernel extension |
